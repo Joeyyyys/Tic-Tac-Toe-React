@@ -20,7 +20,7 @@ function TicTacToe() {
     return (
         <div>;
             <h1>Tic Tac Toe</h1>
-            <Board tiles={tiles} onTileClick={handleTileClick}></Board>
+            <Board playerTurn={playerTurn} tiles={tiles} onTileClick={handleTileClick}></Board>
         </div>
     );
 }
