@@ -39,7 +39,7 @@ function TicTacToe() {
     const [tiles, setTiles] = useState(Array(9).fill(null))
     const [playerTurn, setPlayerTurn] = useState(PLAYER_X)
     const [strikeClass, setStrikeClass] = useState()
-    const [gameState, setGameState] = useState(GameState.playerOWins)
+    const [gameState, setGameState] = useState(GameState.draw)
     
 
     const handleTileClick = (index) =>{
@@ -53,7 +53,7 @@ function TicTacToe() {
     }
 
     useEffect(() => {
-        checkWinner(tiles, setStrikeClass);
+        checkWinner(tiles, setStrikeClass, setGameState);
     }, [tiles])
 
     return (
