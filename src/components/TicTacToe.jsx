@@ -1,5 +1,7 @@
 import Board from "./Board";
 import { useState, useEffect } from "react";
+import GameOver from "./GameOver";
+import GameState from "./GameStates";
 
 const PLAYER_X = "X"
 const PLAYER_O = "O"
@@ -37,6 +39,7 @@ function TicTacToe() {
     const [tiles, setTiles] = useState(Array(9).fill(null))
     const [playerTurn, setPlayerTurn] = useState(PLAYER_X)
     const [strikeClass, setStrikeClass] = useState()
+    const [gameState, setGameState] = useState(GameState.playerOWins)
     
 
     const handleTileClick = (index) =>{
@@ -54,9 +57,10 @@ function TicTacToe() {
     }, [tiles])
 
     return (
-        <div>;
+        <div>
             <h1>Tic Tac Toe</h1>
             <Board playerTurn={playerTurn} tiles={tiles} onTileClick={handleTileClick} strikeClass={strikeClass}></Board>
+            <GameOver gameState={gameState}></GameOver>
         </div>
     );
 }
